@@ -6,8 +6,7 @@
 To provide Acme Financial Services with actionable, intelligence-driven risk prioritization, we built an automated enrichment pipeline leveraging VulnCheck’s enterprise APIs and industry-standard probability metrics.
 
 * **Asset Modeling & Extraction:** We ingested the provided sample list of four Common Platform Enumeration (CPE) URIs representing Acme’s edge and infrastructure footprint (Palo Alto PAN-OS, Smart HMI WebIQ, Ivanti vTM, and Microsoft Windows Server 2025). These were passed to the VulnCheck `/cpe` API to establish a baseline vulnerability register.
-* **Intelligence Enrichment:** Each extracted CVE was processed through VulnCheck's `/index/vulncheck-nvd2` and `/index/exploits` indices. This provided the "single source of truth" for technical metrics (CVSS v3), exploit maturity, timeline data (e.g., weaponization dates), and granular threat actor attribution.
-* **Probability Scoring:** To augment the deterministic VulnCheck data, we executed a batched call to the FIRST.org API to append the Exploit Prediction Scoring System (EPSS) probability score and percentile for every vulnerability.
+* **Intelligence Enrichment:** Each extracted CVE was processed through VulnCheck's `/index/vulncheck-nvd2` and `/index/exploits` indices. This provided the "single source of truth" for technical metrics (CVSS v3), exploit maturity, timeline data (e.g., weaponization dates), EPSS data and granular threat actor attribution.
 * **Evidence-Based Prioritization:** We mapped the enriched dataset against the VulnCheck Evidence-Based Vulnerability Prioritization pyramid. Vulnerabilities were tiered top-down from highest real-world risk (Known Ransomware/Botnet/APT campaigns) down to theoretical risk (All Other Vulnerabilities).
 
 ## 2. Key Findings
